@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
 import './App.css';
 
-function App() {
+export default () => {
+  const [age, setAge]= useState(10);
+  const [name, setName] = useState('Peter')
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div>
+          <p>
+            Name: <input type="text" value={name} onChange = {e => setName(e.target.value)} />
+          </p>
+          <p>Age: {age}</p>
+          <button onClick={() => setAge(age + 1)}>Increment Age By One</button>
+        </div>
+        <p>Name: {name}  Age:{age}</p>
       </header>
     </div>
-  );
+  )
 }
-
-export default App;
